@@ -95,6 +95,8 @@ public:
 	{
 		for(int i=0; i<4; i++)
 			children[i] = 0;
+		vmin = Vec3D( 9999999.0f, 9999999.0f, 9999999.0f);
+		vmax = Vec3D(-9999999.0f,-9999999.0f,-9999999.0f);
 	}
 
 	int px, py, size;
@@ -109,6 +111,11 @@ public:
 	void cleanup();
 
 };
+enum load_phases {
+	main_file,
+	tex,
+	obj
+};
 
 class MapChunk : public MapNode {
 public:
@@ -122,7 +129,7 @@ public:
 	int areaID;
 
 	std::vector<GLuint> wTextures;
-	void initTextures(char *basename, int first, int last);
+	void initTextures(const char *basename, int first, int last);
 
 	bool haswater;
 	std::vector< SWaterLayer > waterLayer;
@@ -155,9 +162,10 @@ public:
 		for(int i=0; i<3; i++) {
 			alphamaps[i] = 0;
 		}
+		memset(&header,0,sizeof(header));
 	}
 
-	void init(MapTile* mt, MPQFile &f, bool bigAlpha);
+	void init(MapTile* mt, MPQFile &f, bool bigAlpha,bool mcnk_has_header,int chunkx,int chunky,load_phases);
 	void destroy();
 	void initStrip(int holes);
 
@@ -191,7 +199,7 @@ public:
 
 	MapNode topnode;
 
-	MapTile(int x0, int z0, char* filename, bool bigAlpha);
+	MapTile(int x0, int z0, std::string filename, bool bigAlpha);
 	~MapTile();
 
 	void draw();
@@ -200,6 +208,7 @@ public:
 	void drawSky();
 	//void drawPortals();
 	void drawModels();
+	void parse_adt(char *,bool,load_phases);
 
 	/// Get chunk for sub offset x,z
 	MapChunk *getChunk(unsigned int x, unsigned int z);

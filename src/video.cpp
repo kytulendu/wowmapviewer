@@ -23,7 +23,9 @@ PFNGLDELETEBUFFERSARBPROC glDeleteBuffersARB = NULL;
 PFNGLMAPBUFFERARBPROC glMapBufferARB = NULL;
 PFNGLUNMAPBUFFERARBPROC glUnmapBufferARB = NULL;
 
+#ifdef _WINDOWS
 PFNGLDRAWRANGEELEMENTSPROC glDrawRangeElements = NULL;
+#endif
 
 bool supportCompression = false;
 bool supportMultiTex = false;
@@ -45,7 +47,8 @@ Video::~Video()
 
 void Video::init(int xres, int yres, bool fullscreen)
 {
-	SDL_Init(SDL_INIT_TIMER | SDL_INIT_VIDEO);
+	int ret = SDL_Init(SDL_INIT_TIMER | SDL_INIT_VIDEO);
+	assert(ret == 0);
 	int flags = SDL_OPENGL | SDL_HWSURFACE | SDL_ANYFORMAT | SDL_DOUBLEBUF;
 	if (fullscreen) flags |= SDL_FULLSCREEN;
 	// 32 bits ffs
@@ -404,6 +407,7 @@ struct TGAHeader {
 GLuint loadTGA(const char *filename, bool mipmaps)
 {
 	FILE *f = fopen(filename,"rb");
+	assert(f);
 	TGAHeader h;
 	fread(&h,18,1,f);
 	if (h.datatypecode != 2) return 0;

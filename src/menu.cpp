@@ -17,7 +17,13 @@ enum MAPID {
 Menu::Menu()
 {	
 	DBCFile f("DBFilesClient\\Map.dbc");
-	f.open();
+	if (!f.open()) {
+		gLog("error opening Map.dbc\n");
+		sel = -1;
+		bg = 0;
+		exit(-1);
+		return;
+	}
 	int y=0;
 	int x=5;
 	
@@ -29,7 +35,11 @@ Menu::Menu()
 		e.font = f16;
 		e.id = i->getInt(0);
 		e.name = i->getString(1);
-		e.description = i->getString(3); // + locale
+		// slot 3 doesnt look like a string!!
+		// http://udw.altervista.org/wiki/index.php?title=Map.dbc
+		int test = i->getInt(3);
+		//e.description = i->getString(3); // + locale
+		gLog("found map %d %s %d\n",e.id,e.name.c_str(),test);
 		if (e.description == "")
 			e.description = e.name;
 
@@ -59,6 +69,28 @@ Menu::Menu()
 		
 		maps.push_back(e);
 
+	}
+	// manualy extracted the patches and guessed the map names
+	const char *extra_maps[] = { "TheHourOfTwilight", "DarkmoonFaire" };
+	for (int i = 0; i < 2; i++) {
+		MapEntry e;
+		e.font = f16;
+		e.id = 1; // i think this only effects the sky right now
+		e.name = extra_maps[i];
+		e.x0 = x;
+		e.y0 = y;
+
+		e.y1 = e.y0 + 16;
+		y += 16;
+
+		if ((y + 25) >= video.yres) {
+			x += 160;
+			y = 0;
+		}
+
+		e.x1 = e.x0 + e.font->textwidth(e.name.c_str());
+
+		maps.push_back(e);
 	}
 
 	sel = -1;
@@ -91,14 +123,14 @@ void Menu::randBackground()
 	if (bg) delete bg;
 	glBindBufferARB(GL_ARRAY_BUFFER_ARB, 0);
 	
-	char *ui[] = {"MainMenu", "NightElf", "Human", "Dwarf", "Orc", "Tauren", "Scourge"}; //, "Bloodelf", "Deathknight", "Draenei" };
+	const char *ui[] = {"MainMenu", "NightElf", "Human", "Dwarf", "Orc", "Tauren", "Scourge"}; //, "Bloodelf", "Deathknight", "Draenei" };
 	int dark[] = {0,0,1,1,0,0,0,0,1,1};
 	int randnum;
 	do {
 		randnum = randint(0,6);
 	} while (randnum == lastbg);
 	//randnum = 0;
-	char *randui = ui[randnum];
+	const char *randui = ui[randnum];
 	darken = dark[randnum]!=0;
     char path[256];
 	sprintf(path, "Interface\\Glues\\Models\\UI_%s\\UI_%s.mdx", randui, randui);
@@ -352,11 +384,15 @@ void Menu::display(float t, float dt)
 	}
 }
 
-void Menu::keypressed(SDL_KeyboardEvent *e)
-{
+void Menu::keypressed(SDL_KeyboardEvent *e) {
 	if (e->type == SDL_KEYDOWN) {
 		if (e->keysym.sym == SDLK_ESCAPE) {
-		    gPop = true;
+			if (cmd == CMD_SELECT_MINIMAP) {
+				sel = -1;
+				world = 0;
+				
+				cmd = CMD_BACK_TO_MENU;
+			} else gPop = true;
 		}
 	}
 }

@@ -155,10 +155,10 @@ void World::init()
 				for (int i=0; i<64; i++) {
 					int d;
 					f.read(&d, 4);
-					if (d) {
+					if (d & 0x1) {
 						maps[j][i] = true;
 						nMaps++;
-					} else 
+					} else
 						maps[j][i] = false;
 					f.read(&d, 4);
 				}
@@ -786,10 +786,7 @@ MapTile *World::loadTile(int x, int z)
 
 	// TODO: make a loader thread  or something :(
 
-	char name[256];
-	sprintf(name,"World\\Maps\\%s\\%s_%d_%d.adt", basename.c_str(), basename.c_str(), x, z);
-
-	maptilecache[firstnull] = new MapTile(x,z,name,mBigAlpha);
+	maptilecache[firstnull] = new MapTile(x,z,basename,mBigAlpha);
 	return maptilecache[firstnull];
 }
 

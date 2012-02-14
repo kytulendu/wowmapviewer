@@ -2,6 +2,11 @@
 #ifdef _WINDOWS
 #include <windows.h>
 #endif
+#include <stdio.h>
+#include <stdarg.h>
+#include <assert.h>
+#include <unistd.h>
+#include "defines.h"
 
 std::string gamePath;
 vector<std::string> mpqArchives;
@@ -10,7 +15,11 @@ vector<std::string> mpqArchives;
 FILE *flog;
 bool glogfirst = true;
 
-void gLog(char *str, ...)
+void check_stuff() {
+     assert(sizeof(__int16) == 2);
+     assert(sizeof(__int32) == 4);
+}
+void gLog(const char *str, ...)
 {
 	if (glogfirst) {
 		flog = fopen("log.txt","w");
@@ -26,16 +35,24 @@ void gLog(char *str, ...)
 	vfprintf (flog, str, ap);
 	va_end (ap);
 
+	va_start (ap,str);
+	vprintf(str,ap);
+	va_end(ap);
+
 	fclose(flog);
 };
 
 int file_exists(char *path)
 {
+#ifdef _WINDOWS
 	FILE *f = fopen(path, "r");
 	if (f) {
 		fclose(f);
 		return true;
 	}
+#else
+	if (access(path,R_OK) == 0) return true;
+#endif
 	return false;
 };
 
