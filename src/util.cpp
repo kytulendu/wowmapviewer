@@ -5,7 +5,9 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <assert.h>
+#ifndef _WINDOWS
 #include <unistd.h>
+#endif
 #include "defines.h"
 
 std::string gamePath;
@@ -118,23 +120,29 @@ void getGamePath()
 	s = 1024;
 	memset(path,0,s);
 
-	l = RegOpenKeyEx(HKEY_LOCAL_MACHINE,"SOFTWARE\\Wow6432Node\\Blizzard Entertainment\\World of Warcraft\\Beta",0,KEY_QUERY_VALUE,&key);
-	if (l != ERROR_SUCCESS)
-		l = RegOpenKeyEx(HKEY_LOCAL_MACHINE,"SOFTWARE\\Wow6432Node\\Blizzard Entertainment\\World of Warcraft\\PTR",0,KEY_QUERY_VALUE,&key);
-	if (l != ERROR_SUCCESS)
-		l = RegOpenKeyEx(HKEY_LOCAL_MACHINE,"SOFTWARE\\Wow6432Node\\Blizzard Entertainment\\World of Warcraft",0,KEY_QUERY_VALUE,&key);
-	if (l != ERROR_SUCCESS) 
-		l = RegOpenKeyEx(HKEY_LOCAL_MACHINE,"SOFTWARE\\Blizzard Entertainment\\World of Warcraft\\Beta",0,KEY_QUERY_VALUE,&key);
-	if (l != ERROR_SUCCESS)
-		l = RegOpenKeyEx(HKEY_LOCAL_MACHINE,"SOFTWARE\\Blizzard Entertainment\\World of Warcraft\\PTR",0,KEY_QUERY_VALUE,&key);
-	if (l != ERROR_SUCCESS)
-		l = RegOpenKeyEx(HKEY_LOCAL_MACHINE,"SOFTWARE\\Blizzard Entertainment\\World of Warcraft",0,KEY_QUERY_VALUE,&key);
-	if (l == ERROR_SUCCESS) {
-		l = RegQueryValueEx(key,"InstallPath",0,&t,(LPBYTE)path,&s);
-		RegCloseKey(key);
-		gamePath.append(reinterpret_cast<const char*>(path));
-		gamePath.append("Data\\");
+	std::string regs[6];
+	regs[0] = "SOFTWARE\\Wow6432Node\\Blizzard Entertainment\\World of Warcraft\\Beta";
+	regs[1] = "SOFTWARE\\Wow6432Node\\Blizzard Entertainment\\World of Warcraft\\PTR";
+	regs[2] = "SOFTWARE\\Wow6432Node\\Blizzard Entertainment\\World of Warcraft";
+	regs[3] = "SOFTWARE\\Blizzard Entertainment\\World of Warcraft\\Beta";
+	regs[4] = "SOFTWARE\\Blizzard Entertainment\\World of Warcraft\\PTR";
+	regs[5] = "SOFTWARE\\Blizzard Entertainment\\World of Warcraft";
+	for(int i=0; i<6; i++) {
+		l = RegOpenKeyEx(HKEY_LOCAL_MACHINE,regs[i].c_str(), 0, KEY_QUERY_VALUE, &key);
+		if (l == ERROR_SUCCESS) {
+			l = RegQueryValueEx(key,"InstallPath",0,&t,(LPBYTE)path,&s);
+			RegCloseKey(key);
+			char p[1024];
+			sprintf(p, "%sWow.exe", path);
+			if (file_exists(p)) {
+				gamePath.append(reinterpret_cast<const char*>(path));
+				gamePath.append("Data\\");
+				//gLog("gPath: %s\r\n", gamePath.c_str());
+				break;
+			}
+		}
 	}
+	
 	//gLog("GamePath: %s\r\n",gamePath.c_str());
 /*
 

@@ -141,10 +141,11 @@ int main(int argc, char *argv[])
 	
 	int langID = 0;
 
-	const char *locales[] = {"enUS", "enGB", "deDE", "frFR", "zhTW", "ruRU", "esES", "koKR", "zhCN"};
+	const char *locales[] = {"enUS", "enGB", "deDE", "frFR", "zhTW", "ruRU", "esES", "koKR", "zhCN", "ptBR"};
 
-	for (size_t i=0; i<9; i++) {
-		sprintf(path, "%s%s\\base-%s.MPQ", gamePath.c_str(), locales[i], locales[i]);
+	for (size_t i=0; i<10; i++) {
+		sprintf(path, "%s%s\\locale-%s.MPQ", gamePath.c_str(), locales[i], locales[i]);
+		//gLog(path);
 		if (file_exists(path)) {
 			langID = i;
 			break;
@@ -152,9 +153,9 @@ int main(int argc, char *argv[])
 	}
 	gLog("Locale: %s\n", locales[langID]);
 
-	sprintf(path,"%sCache/%s/patch-enUS-14946.MPQ",gamePath.c_str(),locales[langID]);
-	gLog("test %s\n",path);
-	archives.push_back(new MPQArchive(path));
+	//sprintf(path,"%sCache/%s/patch-enUS-14946.MPQ",gamePath.c_str(),locales[langID]);
+	//gLog("test %s\n",path);
+	//archives.push_back(new MPQArchive(path));
 
 	if (usePatch) {
 		// patch goes first -> fake priority handling
@@ -174,8 +175,9 @@ int main(int argc, char *argv[])
 		archives.push_back(new MPQArchive(path));
 	}
 
-	const char* archiveNames[] = {"expansion3.MPQ", "expansion2.MPQ", "expansion1.MPQ", "world.MPQ", "sound.MPQ", "art.MPQ","common.MPQ","common-2.MPQ","expansion.MPQ"};
-	for (size_t i=0; i<9; i++) {
+	const char* archiveNames[] = {"expansion3.MPQ", "expansion2.MPQ", "expansion1.MPQ", "world2.MPQ", 
+		"world.MPQ", "sound.MPQ", "art.MPQ","common.MPQ","common-2.MPQ","expansion.MPQ"};
+	for (size_t i=0; i<10; i++) {
 		sprintf(path, "%s%s", gamePath.c_str(), archiveNames[i]);
 		archives.push_back(new MPQArchive(path));
 	}
@@ -200,14 +202,14 @@ int main(int argc, char *argv[])
 	ret = SFileOpenPatchArchive(temp->mpq_a,"/home/clever/.wine/drive_c/Program Files/World of Warcraft/Data/wow-update-13164.MPQ","enUS\\",0);
 	printf("patch status %d\n",ret);
 	*/
-	const char *updates[] = { "13914", "14007", "14333", "14480", "14545", "14946", "15005", "15050" };
-	for (size_t i = 0; i < 8; i++) {
-		sprintf(path, "%swow-update-base-%s.MPQ",gamePath.c_str(),updates[i]);
-		archives.push_back(new MPQArchive(path));
+	const char *updates[] = { "13914", "14007", "14333", "14480", "14545", "14946", "15005", "15050", "15211"};
+	for (size_t i = 0; i < 9; i++) {
+		sprintf(path, "%swow-update-base-%s.MPQ", gamePath.c_str(), updates[i]);
+		//archives.push_back(new MPQArchive(path)); // partial patch not ready
 	}
-	for (size_t i = 0; i < 8; i++) {
-		sprintf(path, "%s%s/wow-update-enUS-%s.MPQ", gamePath.c_str(),locales[langID],updates[i] );
-		archives.push_back(new MPQArchive(path));
+	for (size_t i = 0; i < 9; i++) {
+		sprintf(path, "%s%s/wow-update-%s-%s.MPQ", gamePath.c_str(), locales[langID], locales[langID], updates[i]);
+		//archives.push_back(new MPQArchive(path));
 	}
 	/*
 	 * looking at these files in the mpq editor, they look more like a update to re-pack into wow-update-base files
