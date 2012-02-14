@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 42;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -90,8 +90,6 @@
 		2299DA4F1167FD16005C19BF /* SFileAddFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2299DA4D1167FD16005C19BF /* SFileAddFile.cpp */; };
 		22AEA122123125D800359B16 /* SFilePatchArchives.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22AEA121123125D800359B16 /* SFilePatchArchives.cpp */; };
 		22AEA123123125D800359B16 /* SFilePatchArchives.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22AEA121123125D800359B16 /* SFilePatchArchives.cpp */; };
-		22B2515E12F234FF0059A0E8 /* SBaseDumpData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22B2515D12F234FF0059A0E8 /* SBaseDumpData.cpp */; };
-		22B2515F12F234FF0059A0E8 /* SBaseDumpData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22B2515D12F234FF0059A0E8 /* SBaseDumpData.cpp */; };
 		22C9187D11933FCF0083AC69 /* hash_memory.c in Sources */ = {isa = PBXBuildFile; fileRef = 22C9182B11933FCF0083AC69 /* hash_memory.c */; };
 		22C9187E11933FCF0083AC69 /* md5.c in Sources */ = {isa = PBXBuildFile; fileRef = 22C9182C11933FCF0083AC69 /* md5.c */; };
 		22C9187F11933FCF0083AC69 /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = 22C9182D11933FCF0083AC69 /* sha1.c */; };
@@ -1345,9 +1343,16 @@
 /* Begin PBXProject section */
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0410;
+			};
 			buildConfigurationList = 1DEB916408733D950010E9CD /* Build configuration list for PBXProject "StormLib" */;
-			compatibilityVersion = "Xcode 2.4";
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 0867D691FE84028FC02AAC07 /* stormlib */;
 			productRefGroup = 034768DDFF38A45A11DB9C8B /* Products */;
 			projectDirPath = "";
@@ -1816,28 +1821,25 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ONLY_ACTIVE_ARCH_PRE_XCODE_3_1)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = (
 					_7ZIP_ST,
 					_DEBUG,
 				);
-				GCC_VERSION = 4.0;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				ONLY_ACTIVE_ARCH_PRE_XCODE_3_1 = "$(NATIVE_ARCH_ACTUAL)";
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Carbon,
 				);
-				PREBINDING = NO;
-				SDKROOT_i386 = macosx10.4;
-				SDKROOT_ppc = macosx10.4;
-				SDKROOT_x86_64 = macosx10.5;
+				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				STRIP_INSTALLED_PRODUCT = NO;
 			};
@@ -1847,27 +1849,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = _7ZIP_ST;
-				GCC_VERSION = 4.0;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Carbon,
 				);
-				PREBINDING = NO;
-				SDKROOT_i386 = macosx10.4;
-				SDKROOT_ppc = macosx10.4;
-				SDKROOT_x86_64 = macosx10.5;
+				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				STRIP_INSTALLED_PRODUCT = YES;
-				ZERO_LINK = NO;
 			};
 			name = Release;
 		};
@@ -1876,10 +1873,8 @@
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INSTALL_PATH = /usr/local/lib;
-				PREBINDING = NO;
 				PRODUCT_NAME = StormLib;
 			};
 			name = Debug;
@@ -1888,11 +1883,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				INSTALL_PATH = /usr/local/lib;
-				PREBINDING = NO;
 				PRODUCT_NAME = StormLib;
-				ZERO_LINK = NO;
 			};
 			name = Release;
 		};
@@ -1904,7 +1896,6 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				PREBINDING = NO;
 				PRODUCT_NAME = StormLib;
 			};
 			name = Debug;
@@ -1916,7 +1907,6 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				PREBINDING = NO;
 				PRODUCT_NAME = StormLib;
 			};
 			name = Release;
@@ -1927,11 +1917,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INSTALL_PATH = /usr/local/bin;
-				PREBINDING = NO;
 				PRODUCT_NAME = StormLib_Test;
 			};
 			name = Debug;
@@ -1942,12 +1929,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_MODEL_TUNING = G5;
 				INSTALL_PATH = /usr/local/bin;
-				PREBINDING = NO;
 				PRODUCT_NAME = StormLib_Test;
-				ZERO_LINK = NO;
 			};
 			name = Release;
 		};

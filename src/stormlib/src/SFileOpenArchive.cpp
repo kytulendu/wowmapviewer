@@ -14,7 +14,6 @@
 /*****************************************************************************/
 
 #define __STORMLIB_SELF__
-#define __INCLUDE_CRYPTOGRAPHY__
 #include "StormLib.h"
 #include "StormCommon.h"
 
@@ -124,10 +123,8 @@ LCID WINAPI SFileSetLocale(LCID lcNewLocale)
 //   dwFlags    - See MPQ_OPEN_XXX in StormLib.h
 //   phMpq      - Pointer to store open archive handle
 
-//extern "C" void wow_SFileVerifyMpqHeaderMD5(TMPQHeader * ha);
-
 bool WINAPI SFileOpenArchive(
-    const char * szMpqName,
+    const TCHAR * szMpqName,
     DWORD dwPriority,
     DWORD dwFlags,
     HANDLE * phMpq)
@@ -166,7 +163,7 @@ bool WINAPI SFileOpenArchive(
     if(nError == ERROR_SUCCESS)
     {
         FileStream_GetSize(pStream, FileSize);
-        if((ha = ALLOCMEM(TMPQArchive, 1)) == NULL)
+        if((ha = STORM_ALLOC(TMPQArchive, 1)) == NULL)
             nError = ERROR_NOT_ENOUGH_MEMORY;
     }
 
@@ -244,7 +241,7 @@ bool WINAPI SFileOpenArchive(
 
                 // Now convert the header to version 4
                 BSWAP_TMPQHEADER(ha->pHeader);
-                ConvertMpqHeaderToFormat4(ha, FileSize, dwFlags);
+                nError = ConvertMpqHeaderToFormat4(ha, FileSize, dwFlags);
                 break;
             }
 
@@ -393,21 +390,25 @@ bool WINAPI SFileFlushArchive(HANDLE hMpq)
         return false;
     }
 
-    // If the archive has been changed, update the changes on the disk drive.
-    // Save listfile (if created), attributes (if created) and also save MPQ tables.
-    if(ha->dwFlags & MPQ_FLAG_CHANGED)
+    // If the (listfile) has been invalidated, save it
+    if(ha->dwFlags & MPQ_FLAG_INV_LISTFILE)
     {
-        // Save the (listfile)
         nError = SListFileSaveToMpq(ha);
         if(nError != ERROR_SUCCESS)
             nResultError = nError;
+    }
 
-        // Save the (attributes)
+    // If the (attributes) has been invalidated, save it
+    if(ha->dwFlags & MPQ_FLAG_INV_ATTRIBUTES)
+    {
         nError = SAttrFileSaveToMpq(ha);
         if(nError != ERROR_SUCCESS)
             nResultError = nError;
+    }
 
-        // Save HET table, BET table, hash table, block table, hi-block table
+    // Save HET table, BET table, hash table, block table, hi-block table
+    if(ha->dwFlags & MPQ_FLAG_CHANGED)
+    {
         nError = SaveMPQTables(ha);
         if(nError != ERROR_SUCCESS)
             nResultError = nError;

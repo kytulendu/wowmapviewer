@@ -23,6 +23,7 @@ EXPORTS
     SFileSetCompactCallback
     SFileCompactArchive
     
+    SFileGetMaxFileCount
     SFileSetMaxFileCount    
     
     SFileGetAttributes
@@ -45,7 +46,7 @@ EXPORTS
     SFileExtractFile
 
     SFileVerifyFile
-
+    SFileVerifyRawData
     SFileVerifyArchive
 
     SFileFindFirstFile

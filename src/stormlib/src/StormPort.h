@@ -9,7 +9,7 @@
 /* Computer: whiplash.flachland-chemnitz.de                                  */
 /* System: Linux 2.4.0 on i686                                               */
 /*                                                                           */
-/* Author: Sam Wilkins                                                       */
+/* Author: Sam Wilkins <swilkins1337@gmail.com>                              */
 /* System: Mac OS X and port to big endian processor                         */
 /*                                                                           */
 /*---------------------------------------------------------------------------*/
@@ -26,23 +26,26 @@
 #ifndef __STORMPORT_H__
 #define __STORMPORT_H__
 
+#ifndef __cplusplus
+  #define bool char
+  #define true 1
+  #define false 0
+#endif
+
 // Defines for Windows
 #if !defined(PLATFORM_DEFINED) && (defined(WIN32) || defined(WIN64))
 
   // In MSVC 8.0, there are some functions declared as deprecated.
   #if _MSC_VER >= 1400
-    #ifndef _CRT_SECURE_NO_DEPRECATE
-      #define _CRT_SECURE_NO_DEPRECATE
-    #endif
-    #ifndef _CRT_NON_CONFORMING_SWPRINTFS
-      #define _CRT_NON_CONFORMING_SWPRINTFS
-    #endif
+  #define _CRT_SECURE_NO_DEPRECATE
+  #define _CRT_NON_CONFORMING_SWPRINTFS
   #endif
 
-  #include <assert.h>      
-  #include <ctype.h>      
-  #include <stdio.h>      
-  #include <windows.h>      
+  #include <tchar.h>
+  #include <assert.h>
+  #include <ctype.h>
+  #include <stdio.h>
+  #include <windows.h>
   #define PLATFORM_LITTLE_ENDIAN
 
   #ifdef WIN64
@@ -63,9 +66,7 @@
   #include <Carbon/Carbon.h> // Mac OS X
   
   #define    PKEXPORT
-  #ifndef    __SYS_ZLIB
   #define    __SYS_ZLIB
-  #endif
   #define    __SYS_BZLIB
 
   #ifndef __BIG_ENDIAN__
@@ -84,6 +85,7 @@
   #include <sys/stat.h>
   #include <fcntl.h>
   #include <unistd.h>
+  #include <stdint.h>
   #include <stdlib.h>
   #include <stdio.h>
   #include <stdarg.h>
@@ -139,12 +141,17 @@
   #define FILE_CURRENT  SEEK_CUR
   #define FILE_END      SEEK_END
 
-  #define _stricmp strcasecmp
-  #define _strnicmp strncasecmp
-  
-  void  SetLastError(int err);
-  int   GetLastError();
+  #define _T(x)     x
+  #define _tcslen   strlen
+  #define _tcscpy   strcpy
+  #define _tcscat   strcat
+  #define _tcsrchr  strrchr
+  #define _tprintf  printf
+  #define _stprintf sprintf
+  #define _tremove  remove
 
+  #define _stricmp  strcasecmp
+  #define _strnicmp strncasecmp
 
 #endif // !WIN32
 
