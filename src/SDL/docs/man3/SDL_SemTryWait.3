@@ -9,7 +9,7 @@ SDL_SemTryWait \- Attempt to lock a semaphore but don\&'t suspend the thread\&.
 \fBint \fBSDL_SemTryWait\fP\fR(\fBSDL_sem *sem\fR);
 .SH "DESCRIPTION"
 .PP
-\fBSDL_SemTryWait\fP is a non-blocking varient of \fI\fBSDL_SemWait\fP\fR\&. If the value of the semaphore pointed to by \fBsem\fR is positive it will atomically decrement the semaphore value and return 0, otherwise it will return \fBSDL_MUTEX_TIMEOUT\fR instead of suspending the thread\&.
+\fBSDL_SemTryWait\fP is a non-blocking variant of \fI\fBSDL_SemWait\fP\fR\&. If the value of the semaphore pointed to by \fBsem\fR is positive it will atomically decrement the semaphore value and return 0, otherwise it will return \fBSDL_MUTEX_TIMEOUT\fR instead of suspending the thread\&.
 .PP
 After \fBSDL_SemTryWait\fP is successful, the semaphore can be released and its count atomically incremented by a successful call to \fISDL_SemPost\fR\&.
 .SH "RETURN VALUE"

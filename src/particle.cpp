@@ -518,7 +518,7 @@ Particle PlaneParticleEmitter::newParticle(int anim, int time, float w, float l,
 	// 1 = 0x1 = perdition blade
 	// 4121 = water ele
 	// 4097 = water elemental
-	// 1041 = Transcendance Halo
+	// 1041 = Transcendence Halo
 	// 1039 = water ele
 
 	Particle p;

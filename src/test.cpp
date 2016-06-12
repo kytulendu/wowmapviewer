@@ -316,7 +316,7 @@ void Test::keypressed(SDL_KeyboardEvent *e)
 
 		if (e->keysym.sym == SDLK_F5) {
 			FILE *bf = fopen("bookmarks.txt","a");
-			// copied from above: retreive area name for bookmarks, too
+			// copied from above: retrieve area name for bookmarks, too
 			unsigned int areaID = world->getAreaID();
 			unsigned int regionID = 0;
 			std::string areaName = "";

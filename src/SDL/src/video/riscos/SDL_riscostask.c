@@ -48,7 +48,7 @@ pthread_t main_thread;
 static int task_handle = 0;
 static int wimp_version = 0;
 
-/* RISC OS variables to help compatability with certain programs */
+/* RISC OS variables to help compatibility with certain programs */
 int riscos_backbuffer = 0; /* Create a back buffer in system memory for full screen mode */
 int riscos_closeaction = 1; /* Close icon action */
 

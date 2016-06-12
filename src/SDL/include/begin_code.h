@@ -66,7 +66,7 @@
 #   endif
 #  elif defined (__GNUC__) && __GNUC__ < 4
 #   /* Added support for GCC-EMX <v4.x */
-#   /* this is needed for XFree86/OS2 developement */
+#   /* this is needed for XFree86/OS2 development */
 #   /* F. Ambacher(anakor@snafu.de) 05.2008 */
 #   ifdef BUILD_SDL
 #    define DECLSPEC    __declspec(dllexport)
@@ -95,7 +95,7 @@
 # elif defined(__OS2__)
 #  if defined (__GNUC__) && __GNUC__ < 4
 #   /* Added support for GCC-EMX <v4.x */
-#   /* this is needed for XFree86/OS2 developement */
+#   /* this is needed for XFree86/OS2 development */
 #   /* F. Ambacher(anakor@snafu.de) 05.2008 */
 #   define SDLCALL _cdecl
 #  else

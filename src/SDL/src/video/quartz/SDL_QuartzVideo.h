@@ -97,8 +97,8 @@ typedef struct SDL_PrivateVideoData {
     Uint32             width, height, bpp; /* frequently used data about the display */
     Uint32             flags;              /* flags for current mode, for teardown purposes */
     Uint32             video_set;          /* boolean; indicates if video was set correctly */
-    Uint32             warp_flag;          /* boolean; notify to event loop that a warp just occured */
-    Uint32             warp_ticks;         /* timestamp when the warp occured */
+    Uint32             warp_flag;          /* boolean; notify to event loop that a warp just occurred */
+    Uint32             warp_ticks;         /* timestamp when the warp occurred */
     NSWindow           *window;            /* Cocoa window to implement the SDL window */
     NSView             *view;              /* the window's view; draw 2D and OpenGL into this view */
     CGContextRef       cg_context;         /* CoreGraphics rendering context */

@@ -245,7 +245,7 @@ static int Utf8ToUtf16(const Uint8 *utf8, const int utf8_length, Uint16 *utf16, 
 	    *p++ = c;
 	    utf8 += 1;
 	} else if (c < 0xC0) {
-	    /* Follower byte without preceeding leader bytes.  */
+	    /* Follower byte without preceding leader bytes.  */
 	    return -1;
 	} else if (c < 0xE0) {
 	    /* Two byte sequence.  We need one follower byte.  */

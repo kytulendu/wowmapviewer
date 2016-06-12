@@ -9,7 +9,7 @@ SDL_SemWaitTimeout \- Lock a semaphore, but only wait up to a specified maximum 
 \fBint \fBSDL_SemWaitTimeout\fP\fR(\fBSDL_sem *sem, Uint32 timeout\fR);
 .SH "DESCRIPTION"
 .PP
-\fBSDL_SemWaitTimeout()\fP is a varient of \fISDL_SemWait\fR with a maximum timeout value\&. If the value of the semaphore pointed to by \fBsem\fR is positive (greater than zero) it will atomically decrement the semaphore value and return 0, otherwise it will wait up to \fBtimeout\fR milliseconds trying to lock the semaphore\&. This function is to be avoided if possible since on some platforms it is implemented by polling the semaphore every millisecond in a busy loop\&.
+\fBSDL_SemWaitTimeout()\fP is a variant of \fISDL_SemWait\fR with a maximum timeout value\&. If the value of the semaphore pointed to by \fBsem\fR is positive (greater than zero) it will atomically decrement the semaphore value and return 0, otherwise it will wait up to \fBtimeout\fR milliseconds trying to lock the semaphore\&. This function is to be avoided if possible since on some platforms it is implemented by polling the semaphore every millisecond in a busy loop\&.
 .PP
 After \fBSDL_SemWaitTimeout()\fP is successful, the semaphore can be released and its count atomically incremented by a successful call to \fISDL_SemPost\fR\&.
 .SH "RETURN VALUE"

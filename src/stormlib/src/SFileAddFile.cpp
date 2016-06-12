@@ -424,7 +424,7 @@ int SFileAddFile_Init(
             AddFileCB(pvUserData, 0, hf->dwDataSize, false);
     }
 
-    // If an error occured, remember it
+    // If an error occurred, remember it
     if(nError != ERROR_SUCCESS)
         hf->bErrorOccured = true;
     *phf = hf;

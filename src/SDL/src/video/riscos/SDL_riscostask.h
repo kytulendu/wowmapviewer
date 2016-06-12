@@ -34,6 +34,6 @@ extern int RISCOS_GetWimpVersion();
 extern int RISCOS_GetTaskHandle();
 
 
-/* Wimp mode saveing/restoring */
+/* Wimp mode saving/restoring */
 extern void RISCOS_StoreWimpMode();
 extern void RISCOS_RestoreWimpMode();

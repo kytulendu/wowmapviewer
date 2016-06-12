@@ -22,7 +22,7 @@ If \fBevent\fR is not \fBNULL\fP, the next event is removed from the queue and s
 \&.
 /* Check for events */
 while(SDL_PollEvent(&event)){  /* Loop until there are no events left on the queue */
-  switch(event\&.type){  /* Process the appropiate event type */
+  switch(event\&.type){  /* Process the appropriate event type */
     case SDL_KEYDOWN:  /* Handle a KEYDOWN event */         
       printf("Oh! Key press
 ");

@@ -321,7 +321,7 @@ void MapTile::parse_adt(char *name,bool mcnk_has_header,load_phases phase) {
 			struct SMChunkInfo // 03-29-2005 By ObscuR
 			{
 			000h  MCNK* mcnk;				// absolute offset.
-			004h  UINT32 size;				// the size of the MCNK chunk, this is refering to.
+			004h  UINT32 size;				// the size of the MCNK chunk, this is referring to.
 			008h  UINT32 Unused_flags;			// these two are always 0. only set in the client.
 			00Ch  UINT32 Unused_asyncId;
 			010h
@@ -1097,7 +1097,7 @@ void MapChunk::init(MapTile* mt, MPQFile &f, bool bigAlpha, bool mcnk_has_header
 			Complete and right as of 19-AUG-09 (3.0.9 or higher)
 			Texture layer definitions for this map chunk. 16 bytes per layer, up to 4 layers.
 			Every texture layer other than the first will have an alpha map to specify blending amounts. The first layer is rendered with full opacity. To know which alphamap is used, there is an offset into the MCAL chunk. That one is relative to MCAL.
-			You can animate these by setting the flags. Only simple linear animations are possible. You can specify the direction in 45¢X steps and the speed.
+			You can animate these by setting the flags. Only simple linear animations are possible. You can specify the direction in 45ï¿½X steps and the speed.
 			The textureId is just the array index of the filename array in the MTEX chunk.
 			For getting the right feeling when walking, you should set the effectId which links to GroundEffectTexture.dbc. It defines the little detaildoodads as well as the footstep sounds and if footprints are visible. You only need to have the upper layer with an id and you can set the id to -1 (int16!) to have no detaildoodads and footsteps at all (?).
 			Introduced in Wrath of the Lich King, terrain can now reflect a skybox. This is used for icecubes made out of ADTs to reflect something. You need to have the MTFX chunk in, if you want that. Look at an skybox Blizzard made to see how you should do it.
@@ -1110,9 +1110,9 @@ void MapChunk::init(MapTile* mt, MPQFile &f, bool bigAlpha, bool mcnk_has_header
 			010h  		
 			};
 			Flag	 Description
-			0x001	 Animation: Rotate 45¢X clockwise.
-			0x002	 Animation: Rotate 90¢X clockwise.
-			0x004	 Animation: Rotate 180¢X clockwise.
+			0x001	 Animation: Rotate 45ï¿½X clockwise.
+			0x002	 Animation: Rotate 90ï¿½X clockwise.
+			0x004	 Animation: Rotate 180ï¿½X clockwise.
 			0x008	 Animation: Make this faster.
 			0x010	 Animation: Faster!!
 			0x020	 Animation: Faster!!!!

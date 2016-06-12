@@ -22,7 +22,7 @@
 #include "SDL_config.h"
 
 /*
-     File added by Alan Buckley (alan_baa@hotmail.com) for RISC OS compatability
+     File added by Alan Buckley (alan_baa@hotmail.com) for RISC OS compatibility
 	 27 March 2003
 
      Implements mouse cursor shape definitions and positioning

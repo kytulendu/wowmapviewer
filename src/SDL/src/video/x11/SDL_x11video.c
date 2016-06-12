@@ -25,7 +25,7 @@
    Note:  This implementation does not currently need X11 thread locking,
           since the event thread uses a separate X connection and any
           additional locking necessary is handled internally.  However,
-          if full locking is neccessary, take a look at XInitThreads().
+          if full locking is necessary, take a look at XInitThreads().
 */
 
 #include <unistd.h>

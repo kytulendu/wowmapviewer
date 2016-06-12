@@ -18,7 +18,7 @@ The final blit rectangle is saved in \fBdstrect\fR after all clipping is perform
 .PP
 The blit function should not be called on a locked surface\&.
 .PP
-The results of blitting operations vary greatly depending on whether \fBSDL_SRCAPLHA\fP is set or not\&. See \fISDL_SetAlpha\fR for an explaination of how this affects your results\&. Colorkeying and alpha attributes also interact with surface blitting, as the following pseudo-code should hopefully explain\&. 
+The results of blitting operations vary greatly depending on whether \fBSDL_SRCAPLHA\fP is set or not\&. See \fISDL_SetAlpha\fR for an explanation of how this affects your results\&. Colorkeying and alpha attributes also interact with surface blitting, as the following pseudo-code should hopefully explain\&. 
 .PP
 .nf
 \f(CWif (source surface has SDL_SRCALPHA set) {

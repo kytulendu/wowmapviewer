@@ -389,7 +389,7 @@ static int SDL_SYS_CDOpen(int drive)
 
     /*
      * Use exclusive access. Don't use SC_DIAGNOSTICS as xmcd does because they
-     * require root priviledges, and we don't want that. SC_SINGLE provides
+     * require root privileges, and we don't want that. SC_SINGLE provides
      * exclusive access with less trouble.
      */
     fd = openx(cdromname, O_RDONLY, NULL, SC_SINGLE);

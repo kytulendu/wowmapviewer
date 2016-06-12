@@ -540,7 +540,7 @@ int X11_GetVideoModes(_THIS)
     screen_h = DisplayHeight(SDL_Display, SDL_Screen);
 
 #if SDL_VIDEO_DRIVER_X11_XINERAMA
-    /* Query Xinerama extention */
+    /* Query Xinerama extension */
     if ( CheckXinerama(this, &xinerama_major, &xinerama_minor) ) {
         /* Find out which screen is the desired one */
         int desired = -1;

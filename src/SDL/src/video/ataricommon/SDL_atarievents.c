@@ -121,7 +121,7 @@ void Atari_InitOSKeymap(_THIS)
 
 	SDL_Atari_InitInternalKeymap(this);
 
-	/* Call choosen routine */
+	/* Call chosen routine */
 	this->InitOSKeymap(this);
 }
 
@@ -169,7 +169,7 @@ void Atari_PumpEvents(_THIS)
 {
 	Atari_InitializeEvents(this);
 
-	/* Call choosen routine */
+	/* Call chosen routine */
 	this->PumpEvents(this);
 }
 

@@ -22,7 +22,7 @@
 #include "SDL_config.h"
 
 /*
-     File added by Alan Buckley (alan_baa@hotmail.com) for RISC OS compatability
+     File added by Alan Buckley (alan_baa@hotmail.com) for RISC OS compatibility
 	 27 March 2003
 
      Implements keyboard setup, event pump and keyboard and mouse polling
@@ -493,7 +493,7 @@ static SDL_keysym *TranslateKey(int intkey, SDL_keysym *keysym, int pressed)
 					case SDLK_0: ch = ')'; break;
 					case SDLK_1: ch = '!'; break;
 					case SDLK_2: ch = '"'; break;
-					case SDLK_3: ch = '£'; break;
+					case SDLK_3: ch = 'ï¿½'; break;
 					case SDLK_4: ch = '$'; break;
 					case SDLK_5: ch = '%'; break;
 					case SDLK_6: ch = '^'; break;
@@ -506,7 +506,7 @@ static SDL_keysym *TranslateKey(int intkey, SDL_keysym *keysym, int pressed)
 					case SDLK_LEFTBRACKET:  ch = '{'; break;
 					case SDLK_BACKSLASH:    ch = '|'; break;
 					case SDLK_RIGHTBRACKET: ch = '}'; break;
-					case SDLK_BACKQUOTE:    ch = '¬'; break;
+					case SDLK_BACKQUOTE:    ch = 'ï¿½'; break;
 
 					default:
 						ch = 0; /* Map to zero character if we don't understand it */

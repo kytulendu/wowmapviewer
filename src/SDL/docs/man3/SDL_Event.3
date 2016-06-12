@@ -133,7 +133,7 @@ First off, we create an empty \fBSDL_Event\fR structure\&.
 \f(CWwhile(SDL_PollEvent(&test_event)) {\fR
 .fi
 .PP
- The \fBSDL_PollEvent\fP function take a pointer to an \fBSDL_Event\fR structure that is to be filled with event information\&. We know that if \fBSDL_PollEvent\fP removes an event from the queue then the event information will be placed in our \fBtest_event\fR structure, but we also know that the \fItype\fP of event will be placed in the \fBtype\fR member of \fBtest_event\fR\&. So to handle each event \fBtype\fR seperately we use a \fBswitch\fP statement\&. 
+ The \fBSDL_PollEvent\fP function take a pointer to an \fBSDL_Event\fR structure that is to be filled with event information\&. We know that if \fBSDL_PollEvent\fP removes an event from the queue then the event information will be placed in our \fBtest_event\fR structure, but we also know that the \fItype\fP of event will be placed in the \fBtype\fR member of \fBtest_event\fR\&. So to handle each event \fBtype\fR separately we use a \fBswitch\fP statement\&. 
 .PP
 .nf
 \f(CW  switch(test_event\&.type) {\fR

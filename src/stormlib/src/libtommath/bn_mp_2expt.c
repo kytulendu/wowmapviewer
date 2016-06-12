@@ -28,7 +28,7 @@ mp_2expt (mp_int * a, int b)
   /* zero a as per default */
   mp_zero (a);
 
-  /* grow a to accomodate the single bit */
+  /* grow a to accommodate the single bit */
   if ((res = mp_grow (a, b / DIGIT_BIT + 1)) != MP_OKAY) {
     return res;
   }

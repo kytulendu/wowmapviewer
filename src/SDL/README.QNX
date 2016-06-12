@@ -150,6 +150,6 @@ environmental variable.
  * SDL_VIDEO_CENTERED - if this environmental variable exists then the
 window centering is perfomed in the current virtual console.
 
-Notes: The SDL_VIDEO_CENTERED enviromental  variable  has greater pri-
+Notes: The SDL_VIDEO_CENTERED environmental  variable  has greater pri-
 ority than the SDL_VIDEO_WINDOW_POS in case if both variables are sup-
 plied to the application.

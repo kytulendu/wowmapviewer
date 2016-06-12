@@ -188,7 +188,7 @@ int SAttrFileSaveToMpq(TMPQArchive * ha)
     }
     else
     {
-        // If we don't want to create file atributes, do nothing
+        // If we don't want to create file attributes, do nothing
         if(ha->dwAttrFlags == 0)
             return ERROR_SUCCESS;
 

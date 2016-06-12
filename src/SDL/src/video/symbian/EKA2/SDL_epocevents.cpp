@@ -270,10 +270,10 @@ int EPOC_HandleWsEvent(_THIS, const TWsEvent& aWsEvent)
         //SDL_TRACE1("SDL: EPOC_HandleWsEvent, pointerEvent->iType=%d", pointerEvent->iType); //!!
 
         if (Private->EPOC_ShrinkedHeight) {
-            mousePos.iY <<= 1; // Scale y coordinate to shrinked screen height
+            mousePos.iY <<= 1; // Scale y coordinate to shrunk screen height
         }
         if (Private->EPOC_ShrinkedWidth) {
-            mousePos.iX <<= 1; // Scale x coordinate to shrinked screen width
+            mousePos.iX <<= 1; // Scale x coordinate to shrunk screen width
         }
         */
 

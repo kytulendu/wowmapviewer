@@ -549,7 +549,7 @@ static void EPOC_DirectUpdate(_THIS, int numrects, SDL_Rect *rects)
 		    	const TRect rect(TPoint(rects[i].x, rects[i].y),
 		    		TSize(rects[i].w, rects[i].h));
 		    	if(!EpocSdlEnv::AddUpdateRect(Private->iSwSurface, rect, target))
-		    		return; //not succesful
+		    		return; //not successful
 		    	}
 		    EpocSdlEnv::UpdateSwSurface();
 		    }

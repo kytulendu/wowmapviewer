@@ -41,7 +41,7 @@ To use the audio you also need 16 bit sound and to have installed the DigitalRen
 web site: http://home.t-online.de/~zarquon
 This is loaded when needed by UnixLib.
 
-Note: As most programs ported from other OSes use high resolution graphics and a memory back buffer a machine with a StrongARM processor and 1 or 2MB of VRAM (or a better machine) is recomended.
+Note: As most programs ported from other OSes use high resolution graphics and a memory back buffer a machine with a StrongARM processor and 1 or 2MB of VRAM (or a better machine) is recommended.
 
 
 RISC OS runtime parameters

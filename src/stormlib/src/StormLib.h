@@ -782,7 +782,7 @@ struct TMPQFile
     bool           bLoadedSectorCRCs;   // If true, we already tried to load sector CRCs
     bool           bCheckSectorCRCs;    // If true, then SFileReadFile will check sector CRCs when reading the file
     bool           bIsWriteHandle;      // If true, this handle has been created by SFileCreateFile
-    bool           bErrorOccured;       // If true, then at least one error occured during saving the file to the archive
+    bool           bErrorOccured;       // If true, then at least one error occurred during saving the file to the archive
 };
 
 // Structure for SFileFindFirstFile and SFileFindNextFile

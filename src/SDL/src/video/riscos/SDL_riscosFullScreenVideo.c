@@ -187,7 +187,7 @@ SDL_Surface *FULLSCREEN_SetVideoMode(_THIS, SDL_Surface *current,
     {
        /* If not double buffered we may need to create a memory
          ** back buffer to simulate processing on other OSes.
-         ** This is turned on by setting the enviromental variable
+         ** This is turned on by setting the environmental variable
          ** SDL$<name>$BackBuffer >= 1
          */
        if (riscos_backbuffer == 3)

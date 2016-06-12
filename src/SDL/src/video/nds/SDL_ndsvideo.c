@@ -210,7 +210,7 @@ int NDS_VideoInit(_THIS, SDL_PixelFormat *vformat)
 	
 	//these are rotation backgrounds so you must set the rotation attributes:
     //these are fixed point numbers with the low 8 bits the fractional part
-    //this basicaly gives it a 1:1 translation in x and y so you get a nice flat bitmap
+    //this basically gives it a 1:1 translation in x and y so you get a nice flat bitmap
       /*  BG3_XDX = 1<<8;
         BG3_XDY = 0; 
         BG3_YDX = 0;

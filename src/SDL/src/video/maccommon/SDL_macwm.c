@@ -129,7 +129,7 @@ static Ptr GetDeviceGamma (GDHandle hGD)
 	OSErr			err;
 	
 	err = GetGammaTable (hGD, &pTableGammaDevice);					/* get a pointer to the devices table */
-	if ((noErr == err) && pTableGammaDevice)						/* if succesful */
+	if ((noErr == err) && pTableGammaDevice)						/* if successful */
 		pTableGammaReturn = (GammaTblPtr) CopyGammaTable (pTableGammaDevice); /* copy to global */
 
 	return (Ptr) pTableGammaReturn;

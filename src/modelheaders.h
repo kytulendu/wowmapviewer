@@ -263,7 +263,7 @@ struct ModelLightDef {
 };
 
 struct ModelCameraDef {
-	int32 id; // 0 is potrait camera, 1 characterinfo camera; -1 if none; referenced in CamLookup_Table
+	int32 id; // 0 is portrait camera, 1 characterinfo camera; -1 if none; referenced in CamLookup_Table
 	float farclip; // Where it stops to be drawn.
 	float nearclip; // Far and near. Both of them.
 	AnimationBlock transPos; // (Vec3D) How the cameras position moves. Should be 3*3 floats. (? WoW parses 36 bytes = 3*3*sizeof(float))

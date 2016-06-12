@@ -95,7 +95,7 @@ static const struct {
 	int sync;
 	int vmode;
 } vesa_timings[] = {
-#ifdef USE_VESA_TIMINGS	/* Only tested on Matrox Millenium I */
+#ifdef USE_VESA_TIMINGS	/* Only tested on Matrox Millennium I */
 	{  640,  400, 39771,  48, 16, 39,  8,  96, 2, 2, 0 },	/* 70 Hz */
 	{  640,  480, 39683,  48, 16, 33, 10,  96, 2, 0, 0 },	/* 60 Hz */
 	{  768,  576, 26101, 144, 16, 28,  6, 112, 4, 0, 0 },	/* 60 Hz */
@@ -109,7 +109,7 @@ static const struct {
 #else
 	/* You can generate these timings from your XF86Config file using
 	   the 'modeline2fb' perl script included with the fbset package.
-	   These timings were generated for Matrox Millenium I, 15" monitor.
+	   These timings were generated for Matrox Millennium I, 15" monitor.
 	*/
 	{  320,  200, 79440,  16, 16, 20,  4,  48, 1, 0, 2 },	/* 70 Hz */
 	{  320,  240, 63492,  16, 16, 16,  4,  48, 2, 0, 2 },	/* 72 Hz */

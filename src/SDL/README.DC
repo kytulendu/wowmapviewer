@@ -19,7 +19,7 @@ compile with gl support
 - make -f Makefile.dc
 
 install
-- copy include/*.h and libSDL.a or libSDL_gl.a for your enviroment
+- copy include/*.h and libSDL.a or libSDL_gl.a for your environment
 
 changelog:
 

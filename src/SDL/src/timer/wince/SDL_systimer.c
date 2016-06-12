@@ -112,7 +112,7 @@ int SDL_SYS_TimerInit(void)
 {
 	// create a thread to process a threaded timers
 	// SetTimer does not suit the needs because 
-	// TimerCallbackProc will be called only when WM_TIMER occured
+	// TimerCallbackProc will be called only when WM_TIMER occurred
 
 	timersQuitEvent = CreateEvent(0, TRUE, FALSE, 0);
 	if( !timersQuitEvent )

@@ -1,5 +1,5 @@
 
-/* sanity tests on SDL_rwops.c (usefull for alternative implementations of stdio rwops) */
+/* sanity tests on SDL_rwops.c (useful for alternative implementations of stdio rwops) */
 
 #include <stdlib.h>
 

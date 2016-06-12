@@ -897,7 +897,7 @@ void World::setupFog()
 
 		Vec4D fogcolor(skies->colorSet[FOG_COLOR], 1);
 		glFogfv(GL_FOG_COLOR, fogcolor);
-		// TODO: retreive fogstart and fogend from lights.lit somehow
+		// TODO: retrieve fogstart and fogend from lights.lit somehow
 		glFogf(GL_FOG_END, fogdist);
 		glFogf(GL_FOG_START, fogdist * fogstart);
 

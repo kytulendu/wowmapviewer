@@ -116,7 +116,7 @@ static int  iShiftIsPressed;
 // SetAccessableWindowPos
 //
 // Same as WinSetWindowPos(), but takes care for the window to be
-// always on the screen, the titlebar will be accessable everytime.
+// always on the screen, the titlebar will be accessable every time.
 //
 /////////////////////////////////////////////////////////////////////
 static BOOL SetAccessableWindowPos(HWND hwnd, HWND hwndInsertBehind,

@@ -589,7 +589,7 @@ TMPQHash * GetFirstHashEntry(TMPQArchive * ha, const char * szFileName)
             break;
     }
 
-    // The apropriate hash entry was not found
+    // The appropriate hash entry was not found
     return NULL;
 }
 

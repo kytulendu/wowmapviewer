@@ -26,7 +26,7 @@
  *
  * Original version by Sam Lantinga
  *
- * Mattias Engdegård (Yorick): Rewrite. New encoding format, encoder and
+ * Mattias Engdegï¿½rd (Yorick): Rewrite. New encoding format, encoder and
  * decoder. Added per-surface alpha blitter. Added per-pixel alpha
  * format, encoder and blitter.
  *
@@ -860,7 +860,7 @@ int SDL_RLEBlit(SDL_Surface *src, SDL_Rect *srcrect,
 	srcbuf = (Uint8 *)src->map->sw_data->aux_data;
 
 	{
-	    /* skip lines at the top if neccessary */
+	    /* skip lines at the top if necessary */
 	    int vskip = srcrect->y;
 	    int ofs = 0;
 	    if(vskip) {

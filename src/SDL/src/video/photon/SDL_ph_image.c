@@ -394,7 +394,7 @@ void ph_DestroyImage(_THIS, SDL_Surface* screen)
         SDL_free(SDL_Image);
     }
 
-    /* Must be zeroed everytime */
+    /* Must be zeroed every time */
     SDL_Image = NULL;
 
     if (screen)

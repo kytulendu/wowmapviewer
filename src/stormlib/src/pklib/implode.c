@@ -252,7 +252,7 @@ static unsigned int FindRep(TCmpStruct * pWork, unsigned char * input_data)
     unsigned int equal_byte_count;              // Number of bytes that are equal to the previous occurence
     unsigned int rep_length = 1;                // Length of the found repetition
     unsigned int rep_length2;                   // Secondary repetition
-    unsigned char pre_last_byte;                // Last but one byte from a repetion
+    unsigned char pre_last_byte;                // Last but one byte from a repetition
     unsigned short di_val;
 
     // Calculate the previous position of the PAIR_HASH
@@ -470,7 +470,7 @@ static unsigned int FindRep(TCmpStruct * pWork, unsigned char * input_data)
             prev_rep_end++;
         }
 
-        // Is the newly found repetion at least as long as the previous one ?
+        // Is the newly found repetition at least as long as the previous one ?
         if(rep_length2 >= rep_length)
         {
             // Calculate the distance of the new repetition

@@ -260,7 +260,7 @@ void FB_MatroxAccel(_THIS, __u32 card)
 
 	/* The Matrox has accelerated normal and colorkey blits. */
 	this->info.blit_hw = 1;
-	/* The Millenium I appears to do the colorkey test a word
+	/* The Millennium I appears to do the colorkey test a word
 	   at a time, and the transparency is intverted. (?)
 	 */
 	if ( card != FB_ACCEL_MATROX_MGA2064W ) {

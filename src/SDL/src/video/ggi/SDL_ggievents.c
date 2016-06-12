@@ -108,7 +108,7 @@ void GGI_PumpEvents(_THIS)
 			posted += SDL_PrivateKeyboard(SDL_RELEASED, GGI_TranslateKey(&ev, &keysym));
 			break;
 			case evCommand:
-			fprintf(stderr, "Command event %x recieved\n", ev.cmd.code);
+			fprintf(stderr, "Command event %x received\n", ev.cmd.code);
 			break;
  			default:
 			fprintf(stderr, "Unhandled event type %d\n", ev.any.type);

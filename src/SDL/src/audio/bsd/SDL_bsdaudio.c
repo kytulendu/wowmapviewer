@@ -263,7 +263,7 @@ OBSD_Status(_THIS)
 "sample count	:   %i\n"
 "EOF count	:   %i\n"
 "paused		:   %s\n"
-"error occured	:   %s\n"
+"error occurred	:   %s\n"
 "waiting		:   %s\n"
 "active		:   %s\n"
 "",

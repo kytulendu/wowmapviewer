@@ -232,7 +232,7 @@ int DART_OpenAudio(_THIS, SDL_AudioSpec *spec)
       _this->hidden->pMixBuffers[i].ulBufferLength = _this->hidden->BufferParms.ulBufferSize;
       _this->hidden->pMixBuffers[i].ulUserParm = (ULONG) pBufferDesc; // User parameter: Description of buffer
       _this->hidden->pMixBuffers[i].ulFlags = 0; // Some stuff should be flagged here for DART, like end of
-                                            // audio data, but as we will continously send
+                                            // audio data, but as we will continuously send
                                             // audio data, there will be no end.:)
       SDL_memset(_this->hidden->pMixBuffers[i].pBuffer, iSilence, iBufSize);
     }

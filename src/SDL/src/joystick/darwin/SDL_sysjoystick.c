@@ -186,7 +186,7 @@ static IOReturn HIDCreateOpenDeviceInterface (io_object_t hidDevice, recDevice *
 			plugInResult = (*ppPlugInInterface)->QueryInterface (ppPlugInInterface,
 								CFUUIDGetUUIDBytes (kIOHIDDeviceInterfaceID), (void *) &(pDevice->interface));
 			if (S_OK != plugInResult)
-				HIDReportErrorNum ("CouldnÕt query HID class device interface from plugInInterface", plugInResult);
+				HIDReportErrorNum ("Couldnï¿½t query HID class device interface from plugInInterface", plugInResult);
 			(*ppPlugInInterface)->Release (ppPlugInInterface);
 		}
 		else
@@ -374,7 +374,7 @@ static void HIDAddElement (CFTypeRef refElement, recDevice* pDevice)
 	}
 }
 
-/* collects information from each array member in device element list (each array memeber = element) */
+/* collects information from each array member in device element list (each array member = element) */
 
 static void HIDGetElementsCFArrayHandler (const void * value, void * parameter)
 {

@@ -818,7 +818,7 @@ int WINAPI SCompCompress(
             }
         }
 
-        // If at least one of the compressions remaing unknown, return an error
+        // If at least one of the compressions remaining unknown, return an error
         if(uCompressionMask != 0)
         {
             SetLastError(ERROR_NOT_SUPPORTED);
@@ -987,7 +987,7 @@ int WINAPI SCompDecompress(
             }
         }
 
-        // If at least one of the compressions remaing unknown, return an error
+        // If at least one of the compressions remaining unknown, return an error
         if(uCompressionMask != 0)
         {
             SetLastError(ERROR_NOT_SUPPORTED);
